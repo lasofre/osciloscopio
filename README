@@ -2,9 +2,10 @@
 #				OsciloscopioDigital		    		#	#				       OSCII					#
 #										#
 #################################################################################
+	
 -Integrandes del proyecto:
-	+Ignacio Rodriguez Grandi.
-	+Matias Bucca.
+	+Ignacio Rodriguez Grandi.	|Contacto:
+	+Matias Bucca.			|Contacto:lasofre@gmail.com
 
 -Informacion del proyecto:
 
@@ -36,4 +37,10 @@ Cambios:
 ->Se cambio el archivo Osciloscopio_2.c por main.c
 ->Se se atualzó el Makefile.
 -> La funcion lectura_puerto se paso de main.c a comunicacion.c
+
+-Bibliografia:
+	+Tutoriales X11lib:
+	-https://tronche.com/gui/x/xlib/
+	-https://www.student.cs.uwaterloo.ca/~cs349/f15/resources/X/xTutorialPart1.html
+	-http://math.msu.su/~vvb/2course/Borisenko/CppProjects/GWindow/xintro.html
 
