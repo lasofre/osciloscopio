@@ -1,12 +1,23 @@
 #################################################
-#						#
-#		Osciloscopio Digital		#
-#						#
+#												#
+#		Osciloscopio Digital					#
+#												#
 #################################################
 
-Bibliotecas:
-X11/xlib
 
+
+Bibliotecas:
+fcntl.h 		//Definiciones de control de archivos
+stdio.h
+stdlib.h
+X11/Xlib.h		//Biblioteca grafica
+unistd.h
+errno.h			//Definiciones de control de errores 
+sys/ioctl.h 	//Constantes para ioctl 
+termios.h 		//Estructura de control termios
+string.h
+unistd.h 		// close function
+	
 Cambios:
 
 ->Se cambio la funcion Osciloscopio_2.c por la funcion main.c
