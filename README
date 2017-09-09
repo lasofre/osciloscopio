@@ -1,23 +1,39 @@
-#################################################
-#						#
-#		Osciloscopio Digital		#
-#						#
-#################################################
+#################################################################################												#										#
+#				OsciloscopioDigital		    		#	#				       OSCII					#
+#										#
+#################################################################################
+-Integrandes del proyecto:
+	+Ignacio Rodriguez Grandi.
+	+Matias Bucca.
 
-Bibliotecas:
+-Informacion del proyecto:
+
+Este proyecto tiene por objetivo el desarrollo de un sciloscopio digital de bajo costo
+capas de graficar señales de frecuencias medias.La finalidad del mismo es permintir 
+crear una herramienta útil para la educacion y de costo bajo.
+
+Para poder llevar a cabo el desarrollo se utilizan herramientas libres y gratuitas que se encuentran a disposicion de todos en la web.
+
+-Firmware:
+	El firmware fue programado en el programa pinguino ide:
+	 http://pinguino.cc/download.php
+
+-Bibliotecas:
+
 fcntl.h 		//Definiciones de control de archivos
 stdio.h
 stdlib.h
 X11/Xlib.h		//Biblioteca grafica
 unistd.h
 errno.h			//Definiciones de control de errores 
-sys/ioctl.h 	//Constantes para ioctl 
+sys/ioctl.h 		//Constantes para ioctl 
 termios.h 		//Estructura de control termios 
 string.h
 unistd.h 		// close function
 	
 Cambios:
 
-->Se cambio la funcion Osciloscopio_2.c por la funcion main.c
-->Se modifico el Makefie por el cambio de nombre de la funcion.
+->Se cambio el archivo Osciloscopio_2.c por main.c
+->Se se atualzó el Makefile.
+-> La funcion lectura_puerto se paso de main.c a comunicacion.c
 
