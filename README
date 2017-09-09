@@ -1,0 +1,11 @@
+#################################################
+#						#
+#		Osciloscopio Digital		#
+#						#
+#################################################
+
+Cambios:
+
+->Se cambio la funcion Osciloscopio_2.c por la funcion main.c
+->Se modifico el Makefie por el cambio de nombre de la funcion.
+
