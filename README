@@ -4,6 +4,9 @@
 #						#
 #################################################
 
+Bibliotecas:
+X11/xlib
+
 Cambios:
 
 ->Se cambio la funcion Osciloscopio_2.c por la funcion main.c
