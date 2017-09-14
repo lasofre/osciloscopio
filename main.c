@@ -10,13 +10,17 @@ int main( void ) {
   Display *d;
   Window w;
   XEvent e;
-  int s,fd;
+  int s,fd,chop=0;
   int dato=0,key; 
-  int x=10;
+  int x=10,unidad,decena,centena;
   int y=0,i=0,j,k=1;
+  XPoint puntos[500]={{10,10}};
+  XColor xcolour;
+  xcolour.red=0;xcolour.green=0;xcolour.blue=65535;
+  xcolour.flags= DoRed | DoGreen | DoBlue;
 
 
-   //fd=iniciar_com("/dev/ttyACM0");//Inicio de comunicacion.
+   fd=iniciar_com("/dev/ttyACM0");//Inicio de comunicacion.
 
    d = XOpenDisplay(NULL);
    if (d == NULL) {
@@ -29,7 +33,8 @@ int main( void ) {
                         /* crea la ventana */
     
     w = XCreateSimpleWindow(d, RootWindow(d, s), 10, 10, 700, 600, 1,0,BlackPixel(d,s));
-                        /* selecciona la clase de eventos que interesan */
+  
+   XSetStandardProperties(d,w,"Oscii","HI!",None,NULL,0,NULL);
    XSelectInput(d, w, ExposureMask | KeyPressMask);
 
                         /* muestra la ventana */
@@ -38,25 +43,60 @@ int main( void ) {
 
 
 
-   //write(fd,"i",8);
+   write(fd,"i",8);
 
   while(1){
     XNextEvent(d, &e);
 
     if (e.type == Expose) {
     
-
-     dib(d,w,s);
-     //dib_signal(d,w,s,k,fd,puntos);
+    XClearArea(d, w, 11, 11,509,409, 1);
       
- 
+      dato=lectura_puerto(fd);
+      y=332-(dato/2);
+      if(chop==1 && x<510){
+      		if(x<=510){
+      			x=x+k;
+      			puntos[i].x=x;
+      			puntos[i].y=y;
+      			i++;
+       		}
+      		else{
+        		x=10;
+        		i=0;
+      		}
+      }
+       
+      if (chop==0){
+       		if(x<=510){
+      			x=x+k;
+      			puntos[i].x=x;
+      			puntos[i].y=y;
+      			i++;
+        	}
+      		else{
+        		x=10;
+        		i=0;
+      		}
+      	}
+      xcolour.red=0;xcolour.green=65535;xcolour.blue=0;
+	  XAllocColor(d,DefaultColormap(d,s),&xcolour);
+      XSetForeground(d, DefaultGC(d, s), xcolour.pixel);
+      for(j=0;j<(i-1);j++)XDrawLine(d,w,DefaultGC(d,s),puntos[j].x,puntos[j].y,puntos[j+1].x,puntos[j+1].y); 
+      dib(d,w,s); 
+   
+
+      
+ 	
     }
     if (e.type == KeyPress){
       key=e.xkey.keycode;
+      
       switch(key){
-        case 114:if(k<8)k++;break;
+        case 114:if(k<9)k++;break;
         case 113:if(k>1)k--;break;
-        default:break;break;
+        case 54:if(chop==0)chop=1;else chop=0;break;
+        default:break;
       }
 
     }
@@ -72,7 +112,6 @@ int main( void ) {
 
 
 void dib( Display *d,Window w,int s){
-	  XPoint puntos[500]={{10,10}};
 
       XColor xcolour;
       xcolour.red=0;xcolour.green=0;xcolour.blue=65535;
@@ -80,8 +119,14 @@ void dib( Display *d,Window w,int s){
 	  XAllocColor(d,DefaultColormap(d,s),&xcolour);
 	  XSetForeground(d, DefaultGC(d, s),xcolour.pixel );
       XDrawRectangle(d, w, DefaultGC(d, s), 10, 10,510, 410);
+
+      xcolour.red=0;xcolour.green=0;xcolour.blue=65535;
+      XAllocColor(d,DefaultColormap(d,s),&xcolour);
+      XSetForeground(d, DefaultGC(d, s), xcolour.pixel);
+      XDrawLine(d,w,DefaultGC(d, s), 10,215, 520,215);
+      XDrawLine(d,w,DefaultGC(d, s), 265,10, 265,420);   
+
       xcolour.red=0;xcolour.green=0;xcolour.blue=15000;
-    
 	  XAllocColor(d,DefaultColormap(d,s),&xcolour);
       XSetForeground(d, DefaultGC(d, s), xcolour.pixel);
       
@@ -101,36 +146,7 @@ void dib( Display *d,Window w,int s){
       XDrawLine(d,w,DefaultGC(d, s), 165,10, 165,420);
       XDrawLine(d,w,DefaultGC(d, s), 115,10, 115,420);
       XDrawLine(d,w,DefaultGC(d, s), 65,10, 65,420);  
-      
-      xcolour.red=0;xcolour.green=0;xcolour.blue=65535;
-      XAllocColor(d,DefaultColormap(d,s),&xcolour);
-      XSetForeground(d, DefaultGC(d, s), xcolour.pixel);
-      XDrawLine(d,w,DefaultGC(d, s), 10,215, 520,215);
-      XDrawLine(d,w,DefaultGC(d, s), 265,10, 265,420);   
-
-}
-
-void dib_signal(Display *d,Window w,int s,int k,int fd,XPoint puntos[500]){
-	register int i,x;
-	int j,dato,y;
-	XClearArea(d, w, 11, 11,499,399, 1);
-	if(i>1)for(j=0;j<(i-1);j++)XDrawLine(d,w,DefaultGC(d,s),puntos[j].x,puntos[j].y,puntos[j+1].x,puntos[j+1].y); 
-      
-      sleep(0.8);
-      dato=lectura_puerto(fd);
-      y=(dato/2)+150;
-
-      if(x<510){
-      	x=x+k;
-      	puntos[i].x=x;
-        if(y<10)puntos[i].y=10;
-        else puntos[i].y=y;
-      	i++;
-       }
-      else{
-        x=10;
-        i=0;
-      }
+      XFlush(d);
 }
 
 
