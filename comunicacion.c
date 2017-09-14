@@ -107,5 +107,7 @@ int lectura_puerto(int fd){
       decena=(rev[1]-48)*10;
       unidad=(rev[2]-48);
       dato=centena+decena+unidad;
+      if (dato>500)dato=500;
+      if(dato<0)dato=0;
       return dato;
 }
