@@ -1,5 +1,6 @@
-#################################################################################												#										#
-#				OsciloscopioDigital		    		#	#				       OSCII					#
+#################################################################################
+#				OsciloscopioDigita				#		       
+#				       OSCII					#
 #										#
 #################################################################################
 	
@@ -32,12 +33,16 @@ termios.h 		//Estructura de control termios
 string.h
 unistd.h 		// close function
 	
-Cambios:
-
+-Cambios:
+	<07/09/17>
 ->Se cambio el archivo Osciloscopio_2.c por main.c
 ->Se se atualzó el Makefile.
 -> La funcion lectura_puerto se paso de main.c a comunicacion.c
-
+	<14/09/17>
+->Se habilitó la comunicacion con la placa.
+->Se arreglaron errores en la grafica de datos.
+->Se borró la funcion dib_signal por errores.
+->Nueva funcion <<Chop>> con la tecla c.
 -Bibliografia:
 	+Tutoriales X11lib:
 	-https://tronche.com/gui/x/xlib/
