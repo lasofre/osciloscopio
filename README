@@ -3,16 +3,16 @@
 #				       OSCII					#
 #										#
 #################################################################################
-	
+-Versión: 1.0	
 -Integrandes del proyecto:
-	+Ignacio Rodriguez Grandi.	|Contacto:
+	+Ignacio Rodriguez Grandi.	|Contacto:nato1631@gmail.com
 	+Matias Bucca.			|Contacto:lasofre@gmail.com
 
 -Informacion del proyecto:
 
 Este proyecto tiene por objetivo el desarrollo de un osciloscopio digital de bajo costo
 capas de graficar señales de frecuencias medias.La finalidad del mismo es permitir 
-crear una herramienta útil para la educacion y de costo bajo.
+crear una herramienta útil para la educacion.
 
 Para poder llevar a cabo el desarrollo se utilizan herramientas libres y gratuitas que se encuentran a disposicion de todos en la web.
 
@@ -43,6 +43,10 @@ unistd.h 		// close function
 ->Se arreglaron errores en la grafica de datos.
 ->Se borró la funcion dib_signal por errores.
 ->Nueva funcion <<Chop>> con la tecla c.
+	<03/11/17>
+->Nueva interfaz.
+->La función Parametros (P) no esta habilitada.
+
 -Bibliografia:
 	+Tutoriales X11lib:
 	-https://tronche.com/gui/x/xlib/
