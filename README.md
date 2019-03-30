@@ -1,9 +1,9 @@
 # Osciloscopio Digita Inteligente OSCII	V 1.0	
-##Integrandes del proyecto:
+## Integrandes del proyecto:
 	+Ignacio Rodriguez Grandi.	|Contacto:nato1631@gmail.com
 	+Matias Bucca.			|Contacto:lasofre@gmail.com
 
-##Informacion del proyecto:
+## Informacion del proyecto:
 
 Este proyecto tiene por objetivo el desarrollo de un osciloscopio digital de bajo costo
 capas de graficar señales de frecuencias medias.La finalidad del mismo es permitir 
@@ -11,11 +11,11 @@ crear una herramienta útil para la educacion.
 
 Para poder llevar a cabo el desarrollo se utilizan herramientas libres y gratuitas que se encuentran a disposicion de todos en la web.
 
-##Firmware:
+## Firmware:
 	El firmware fue programado en el programa pinguino ide:
 	 http://pinguino.cc/download.php
 
-##Bibliotecas:
+## Bibliotecas:
 
 fcntl.h 		//Definiciones de control de archivos
 stdio.h
@@ -28,7 +28,7 @@ termios.h 		//Estructura de control termios
 string.h
 unistd.h 		// close function
 	
-##Cambios:
+## Cambios:
 ### <07/09/17>
 * Se cambio el archivo Osciloscopio_2.c por main.c
 * Se se atualzó el Makefile.
