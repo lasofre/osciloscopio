@@ -38,7 +38,7 @@ unistd.h 		// close function
 * Se arreglaron errores en la grafica de datos.
 * Se borró la funcion dib_signal por errores.
 * Nueva funcion <<Chop>> con la tecla c.
-###<03/11/17>
+### <03/11/17>
 * Nueva interfaz.
 * La función Parametros (P) no esta habilitada.
 ### Bibliografia:
